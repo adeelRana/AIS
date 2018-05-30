@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice_header" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5e3026a0-ef34-44ab-a488-bdaf86d52702">
+	<property name="ireport.zoom" value="1.1000000000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DISTRIBUTOR_NAME" class="java.lang.String"/>
+	<parameter name="DISTRIBUTOR_PHN" class="java.lang.String"/>
+	<parameter name="SUB_REPORT_DIR" class="java.lang.String"/>
+	<parameter name="SUB_REPORT" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="customerName" class="java.lang.String"/>
+	<field name="customerRoute" class="java.lang.String"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="discount" class="java.lang.Double"/>
+	<field name="detailReportData" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<detail>
+		<band height="331" splitType="Prevent">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="325" uuid="262b8d10-e23d-48d4-a7be-841bdb85afbd"/>
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="41" forecolor="#333333" backcolor="#CCCCCC" uuid="dc26600a-7d10-40ef-9140-ff9c0b21d287"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Georgia" size="18" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{DISTRIBUTOR_NAME}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="43" width="555" height="20" forecolor="#333333" uuid="69689834-e26e-4ebf-8013-d71b8e7ae008"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font fontName="Cambria" size="13" isBold="true" isItalic="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Date : " + $F{date}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="65" width="555" height="20" forecolor="#333333" uuid="4c866f5e-b418-41e3-b055-49411f8aac63"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Cambria" size="13" isBold="true" isItalic="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["M/S "+ $F{customerName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="87" width="555" height="20" forecolor="#333333" uuid="e84754e2-0b5e-4f9b-a66a-0c653dad4021"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Calibri" size="11" isBold="false" isItalic="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["M/S "+ $F{customerRoute}]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement mode="Transparent" x="0" y="109" width="555" height="203" uuid="ae08c3d0-c7ea-470b-8018-76139882ef27"/>
+					<subreport>
+						<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="555" height="203" uuid="7cfa11b6-8d73-4b05-bc24-0e538e0e591f"/>
+						<subreportParameter name="TOTAL">
+							<subreportParameterExpression><![CDATA[$F{total}]]></subreportParameterExpression>
+						</subreportParameter>
+						<subreportParameter name="DISCOUNT">
+							<subreportParameterExpression><![CDATA[$F{discount}]]></subreportParameterExpression>
+						</subreportParameter>
+						<dataSourceExpression><![CDATA[$F{detailReportData}]]></dataSourceExpression>
+						<subreportExpression><![CDATA[$P{SUB_REPORT}]]></subreportExpression>
+					</subreport>
+				</frame>
+				<line>
+					<reportElement x="0" y="108" width="555" height="1" uuid="6a082f95-9ef7-4574-8971-57b774a4e36a"/>
+				</line>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

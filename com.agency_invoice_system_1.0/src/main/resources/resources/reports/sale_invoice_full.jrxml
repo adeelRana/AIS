@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FMS_sale_invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fea4a00a-550d-4b70-847b-db21772b2416">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#CCCCCC"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="invoiceNo" class="java.lang.String"/>
+	<parameter name="customerName" class="java.lang.String"/>
+	<parameter name="customerPhone" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="agent" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.Object"/>
+	<parameter name="back" class="java.lang.Object"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="banner" class="java.lang.Object"/>
+	<parameter name="description" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="code" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="qty" class="java.lang.Double"/>
+	<field name="rate" class="java.lang.Double"/>
+	<field name="total" class="java.lang.String"/>
+	<field name="saleRate" class="java.lang.Double"/>
+	<variable name="Counter" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$V{Counter}.intValue()+1]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(1)]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="219" splitType="Stretch">
+			<frame>
+				<reportElement uuid="fe9d60c0-1a78-4d84-9fd5-37b6ab531078" mode="Opaque" x="-21" y="148" width="597" height="24" forecolor="#FFFFFF" backcolor="#4D4D4D"/>
+				<rectangle>
+					<reportElement uuid="b90d627b-f707-4c80-bc3a-8b2587358c18" mode="Opaque" x="21" y="0" width="36" height="24" backcolor="#FF6600"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+			</frame>
+			<textField>
+				<reportElement uuid="f928cadd-e426-4878-9bbf-b33fb23ca88b" style="SubTitle" x="104" y="123" width="119" height="22" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="14" isBold="false" isItalic="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7680ebd2-98d7-40e2-b24d-32b21b581e1c" style="SubTitle" x="3" y="123" width="95" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b187327b-f060-49a4-856b-9938c67f31ed" style="SubTitle" x="337" y="123" width="95" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Invoice No]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="fc458494-d002-468f-8e32-1bc79739efc0" style="SubTitle" x="432" y="123" width="123" height="22" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="14" isBold="false" isItalic="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{invoiceNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="45c504ef-7e82-4f02-aa44-b329aca4c40e" style="SubTitle" x="0" y="177" width="64" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="0260a7ee-e115-4134-80ce-8e87268c6758" style="SubTitle" x="76" y="177" width="276" height="22" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="14" isBold="false" isItalic="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{customerName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2c15b18a-6f88-4f93-a7dd-eb73ca446f94" style="SubTitle" x="365" y="176" width="56" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Phone:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9570c7fb-d8bb-4a5b-89c9-13c0d2338c5c" style="SubTitle" x="421" y="176" width="136" height="22" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="14" isBold="false" isItalic="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{customerPhone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3596e193-768c-4680-95b6-00cacf3fb489" style="SubTitle" x="47" y="148" width="413" height="24" forecolor="#CCCCCC"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Messer's Details"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a89f0817-7e64-417a-afbe-1b40ce32fe6b" style="SubTitle" x="76" y="197" width="276" height="22" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Times New Roman" size="14" isBold="false" isItalic="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{agent}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f11d5826-33fa-4c48-8464-87f7de824e2e" style="SubTitle" x="0" y="197" width="64" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Agent:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b0c0ed5b-5aaa-4c83-af60-2f5f2f686ea0" style="Title" x="95" y="0" width="457" height="50" forecolor="#FF6600"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="24" isBold="true" isItalic="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{logo}!= null ?$P{companyName}:""]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="ad8b322f-8cb4-4502-9ed0-5849844142ea" x="-3" y="0" width="558" height="50"/>
+				<imageExpression><![CDATA[$P{logo} != null?
+    $P{logo}:
+    $P{banner}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="ba4d7fb9-8156-4681-8c86-8b9a490992a2" x="95" y="50" width="460" height="44"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+					<font fontName="Times New Roman" size="12" isBold="true" isItalic="true"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement uuid="33170a84-ead5-4491-818a-0457a29016c9" mode="Opaque" x="1" y="1" width="554" height="21" backcolor="#4D4D4D"/>
+				<staticText>
+					<reportElement uuid="7941ff2d-75b2-4025-be62-8e3ffc9bb622" style="Column header" mode="Transparent" x="268" y="3" width="60" height="15" forecolor="#F2EBDF"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Qty]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="553d2fdc-3dbe-42b1-942d-4d189df9b0c2" style="Column header" mode="Transparent" x="2" y="3" width="44" height="15" forecolor="#F2EBDF"/>
+					<textElement/>
+					<text><![CDATA[S.No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="182a707d-197b-45f6-b369-f927342f889e" style="Column header" mode="Transparent" x="474" y="3" width="77" height="15" forecolor="#F2EBDF"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="56583475-02e4-464b-9d54-bc77a541280e" style="Column header" mode="Transparent" x="139" y="3" width="129" height="15" forecolor="#F2EBDF"/>
+					<textElement/>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="a8655d0e-367c-4a90-9a8f-18dcaf5f8d89" style="Column header" mode="Transparent" x="400" y="3" width="74" height="15" forecolor="#F2EBDF"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Invoice Rate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="f0e6f1fa-66e5-48ef-a344-2405e32efdaf" style="Column header" mode="Transparent" x="46" y="3" width="93" height="15" forecolor="#F2EBDF"/>
+					<textElement/>
+					<text><![CDATA[Part No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="575632ad-ff29-4eb0-a1af-c59dde38b7aa" style="Column header" mode="Transparent" x="328" y="3" width="74" height="15" forecolor="#F2EBDF"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Rate]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<frame>
+				<reportElement uuid="53d5e688-ce1a-4b58-a0f8-f99d96959d26" style="Row" mode="Opaque" x="0" y="0" width="555" height="19"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="9ab0faf3-bcaf-4379-9c7e-de9572ca2479" style="Detail" x="47" y="2" width="93" height="15"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="7370d8be-55db-4b9d-a9b1-43187e9b7ab7" style="Detail" x="1" y="2" width="46" height="15"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{Counter}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f459ec77-e49e-4fe9-bbe0-6c19eb5a692e" style="Detail" x="269" y="2" width="60" height="15"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="81275609-af4f-4fd2-939e-bc78f00f64b0" style="Detail" x="401" y="2" width="74" height="15"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{rate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="4eef57e0-8bdb-4c55-94fe-1a8f1e0b76a5" style="Detail" x="475" y="2" width="80" height="15"/>
+					<textElement textAlignment="Right">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qty} *$F{rate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="25292025-2e15-4c11-8ee5-2aac0c2c81d6" style="Detail" x="140" y="2" width="129" height="15"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="438c54fd-1c30-4cc9-a0a8-d38d3d8711cf" style="Detail" x="329" y="3" width="74" height="15"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{saleRate}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="26" splitType="Stretch">
+			<frame>
+				<reportElement uuid="2f0285a4-5b53-435f-8a9f-9514e542f6f4" mode="Opaque" x="0" y="0" width="552" height="26" forecolor="#FFFFFF" backcolor="#4D4D4D"/>
+				<textField>
+					<reportElement uuid="191c05f6-143d-440b-b47a-52201986d889" style="SubTitle" x="421" y="2" width="128" height="24" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="af10f688-e427-4321-a800-9a3751ecbf2e" style="Column header" mode="Transparent" x="326" y="2" width="92" height="24" forecolor="#F2EBDF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="a16564c4-3635-4ad8-911e-bd25351c5da9" mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#CCCCCC" backcolor="#4D4D4D"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="8fe92cb9-1229-4a21-84bc-ee6b84d1b087" style="Column header" x="533" y="0" width="40" height="20" forecolor="#CCCCCC"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="876dd75a-f7ce-4eaa-b7dc-0db2066a182b" style="Column header" x="453" y="0" width="80" height="20" forecolor="#CCCCCC"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="693c5d95-ac45-4f04-a454-415dec122395" style="Column header" x="22" y="1" width="197" height="20" forecolor="#CCCCCC"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="invoice_detail" language="groovy" pageWidth="555" pageHeight="842" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="54cf6938-7160-44ff-86d8-3fbe60602e22">
+	<property name="ireport.zoom" value="1.771561000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="TOTAL" class="java.lang.Double"/>
+	<parameter name="DISCOUNT" class="java.lang.Double"/>
+	<field name="pCode" class="java.lang.String"/>
+	<field name="pName" class="java.lang.String"/>
+	<field name="pFlavor" class="java.lang.String"/>
+	<field name="pWeight" class="java.lang.Number"/>
+	<field name="pSale" class="java.lang.Number"/>
+	<field name="pRetun" class="java.lang.Double"/>
+	<field name="pPrice" class="java.lang.Double"/>
+	<variable name="SUM" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[($F{pSale} - $F{pRetun}) * $F{pPrice}]]></variableExpression>
+	</variable>
+	<variable name="SUM_QTY" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{pSale}]]></variableExpression>
+	</variable>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="24" forecolor="#FFFFFF" backcolor="#4D4D4D" uuid="93cacf7a-92a0-46cb-bdc4-2ef71b902e2c"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="1" width="47" height="21" forecolor="#FFFFFF" uuid="8a9ba06f-0862-4eec-ab30-1fa51081d162"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Qty"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="47" y="1" width="201" height="21" forecolor="#FFFFFF" uuid="54c2024b-a8d0-49c7-bc57-6599bc6ea7e8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Product"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="248" y="1" width="51" height="21" forecolor="#FFFFFF" uuid="b328667f-f756-4320-bb49-604c10ef9537"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Weight"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="297" y="1" width="55" height="21" forecolor="#FFFFFF" uuid="510dde3f-e1d3-4ce4-8b76-3f7fc500b7b6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Price"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="352" y="1" width="46" height="21" forecolor="#FFFFFF" uuid="62edd536-005d-4984-9840-528b3c818af4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Rtn"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="398" y="0" width="55" height="21" forecolor="#FFFFFF" uuid="7c6c52d3-a63b-4b22-90ea-ab66395bce3c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total Qty"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="453" y="1" width="99" height="21" forecolor="#FFFFFF" uuid="1becebe9-3b69-442e-9de7-c30ab2ead66a"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA["TOTAL"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="21" uuid="9b240133-beb7-4047-8d99-8d9f94471345"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="1" y="0" width="46" height="21" uuid="b7db1e0e-06e1-4a81-ba95-8bf51571193f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pSale}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="47" y="0" width="201" height="21" uuid="c2efaa11-0c78-4319-b0c5-997976e38eb1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pName} + "(" +$F{pFlavor}+ ")"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="248" y="0" width="50" height="21" uuid="2460616f-fe5d-40cf-8494-41f6cd3a3fdc"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pWeight}+" gm"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="299" y="0" width="53" height="21" uuid="49f6b85a-1cae-4f98-aaac-9143f023c080"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pPrice}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="352" y="0" width="46" height="21" uuid="cda42055-8718-40ee-b349-2949e384ecaa"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pRetun}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="398" y="0" width="55" height="21" uuid="fd824943-f989-4c0b-ac68-3e4ee253b525"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pSale} - $F{pRetun}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="453" y="0" width="99" height="21" uuid="011a67bc-4c3c-4bea-b111-60b039f1e852"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{pSale} - $F{pRetun}) * $F{pPrice}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="86">
+			<line>
+				<reportElement x="1" y="1" width="554" height="1" uuid="eecc8904-add7-4c3b-99df-c34f94d56195"/>
+			</line>
+			<rectangle>
+				<reportElement x="386" y="19" width="167" height="15" uuid="79f9b020-7be4-4598-b0f8-c78df59af388"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="386" y="34" width="167" height="15" forecolor="#000000" backcolor="#666666" uuid="4e4efa4d-4671-4d56-adf8-155ba1d52104"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="386" y="49" width="167" height="15" uuid="1ee99560-2b19-4d17-ad0e-9cba26b1c847"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="386" y="64" width="167" height="15" uuid="dff30e1c-561b-4100-99f4-0ffc8f4bc6c2"/>
+			</rectangle>
+			<textField>
+				<reportElement x="212" y="19" width="167" height="15" forecolor="#333333" uuid="41aa3569-148a-4eec-b3ad-eccc4455d05c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cambria" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Discount"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="34" width="167" height="15" forecolor="#333333" uuid="b54809b7-8c1c-4e08-a1aa-c044a6656c22"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cambria" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Grand Total"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="49" width="167" height="15" forecolor="#333333" uuid="945ba9c1-653d-4c19-9177-b7dc50514ca9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cambria" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Received"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="64" width="167" height="15" forecolor="#333333" uuid="4f138751-39ec-462b-8c5d-f33d527085cf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cambria" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Balance"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="19" width="167" height="15" forecolor="#333333" uuid="c630a060-bd0a-4c7a-8aa2-370b7514e9b6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cambria" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM} * $P{DISCOUNT} / 100]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="34" width="167" height="15" forecolor="#FFFFFF" uuid="58322349-8e73-466c-99a8-92733b18d8c2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cambria" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SUM}-($V{SUM}*$P{DISCOUNT}/100)]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="1" y="2" width="554" height="84" uuid="cd45317b-e8dd-429a-a7a4-4069cd4ebebe"/>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="551" height="16" forecolor="#FFFFFF" backcolor="#4D4D4D" uuid="5de83402-4ba3-4874-a5ea-db64d456237e"/>
+				</frame>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="46" height="16" forecolor="#FFFFFF" uuid="8fcbd5bd-580b-403b-b3f7-e46b3ba5d5bb"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{SUM_QTY}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="385" y="0" width="167" height="16" forecolor="#FFFFFF" uuid="e334db6c-b7d4-4c38-8198-6d7d1523c61b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{SUM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="211" y="1" width="167" height="15" forecolor="#FFFFFF" uuid="b688143b-8c96-4dee-ab4e-0593a2f2767b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Cambria" size="10" isBold="true" isItalic="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Total"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnFooter>
+</jasperReport>

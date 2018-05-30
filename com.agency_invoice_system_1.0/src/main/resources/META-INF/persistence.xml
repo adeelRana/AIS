@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="com.inventrysystem_InventrySystem_jar_1.0PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.ar.ais.models.EntityBeans.Guardians</class>
+    <class>com.ar.ais.models.EntityBeans.Students</class>
+    <class>com.ar.ais.models.EntityBeans.Transactions</class>
+    <class>com.ar.ais.models.EntityBeans.Accounts</class>
+    <class>com.ar.ais.models.EntityBeans.AppUser</class>
+    <class>com.ar.ais.models.EntityBeans.WorkingSchedule</class>
+    <class>com.ar.ais.models.EntityBeans.Route</class>
+    <class>com.ar.ais.models.EntityBeans.Stock</class>
+    <class>com.ar.ais.models.EntityBeans.Company</class>
+    <class>com.ar.ais.models.EntityBeans.Booker</class>
+    <class>com.ar.ais.models.EntityBeans.Products</class>
+    <class>com.ar.ais.models.EntityBeans.Shop</class>
+    <class>com.ar.ais.models.EntityBeans.Summary</class>
+    <class>com.ar.ais.models.EntityBeans.Invoice</class>
+    <class>com.ar.ais.models.EntityBeans.StockDetail</class>
+    <class>com.ar.ais.models.EntityBeans.License</class>
+    <class>com.ar.ais.models.EntityBeans.InvoiceDetail</class>
+    <class>com.ar.ais.models.EntityBeans.SaleDetail</class>
+    <class>com.ar.ais.models.EntityBeans.Purchase</class>
+    <class>com.ar.ais.models.EntityBeans.Sale</class>
+    <class>com.ar.ais.models.EntityBeans.PurchaseDetail</class>
+    <class>com.ar.ais.models.EntityBeans.StockDetail_1</class>
+    <class>com.ar.ais.models.EntityBeans.Company_1</class>
+    <class>com.ar.ais.models.EntityBeans.Products_1</class>
+    <class>com.ar.ais.models.EntityBeans.Supplier</class>
+    <class>com.ar.ais.models.EntityBeans.BookerCr</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/inventry_system?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>
